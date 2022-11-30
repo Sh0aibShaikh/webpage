@@ -2,7 +2,12 @@ import React from "react";
 import { TriangleDownIcon } from "@chakra-ui/icons";
 import { Box, Select, Button, Text, Flex, Show, Hide } from "@chakra-ui/react";
 
-export default function SortBy(props: any) {
+type SortByType = {
+  featureListHandler: () => void;
+  featureList: boolean;
+  setFeatureList: (value: boolean) => void;
+};
+export default function SortBy(props: SortByType) {
   const featuredList = ["Price: Low to High", "Price: High to Low", "Avg. Customer Review", "Newest Arrivals"];
 
   return (
@@ -35,11 +40,12 @@ export default function SortBy(props: any) {
             _focus={{}}
             _active={{}}
             fontSize="sm"
+            pos="relative"
             bgColor="unset"
             border="1px solid"
             _focusVisible={{}}
-            fontWeight="normal"
             lineHeight="short"
+            fontWeight="normal"
             borderColor="gray.250"
             onClick={props.featureListHandler}
           >
@@ -51,23 +57,38 @@ export default function SortBy(props: any) {
             px="3.5"
             w="100%"
             left="0"
+            zIndex="1"
             position="fixed"
             borderTop="1px solid"
             borderColor="gray.200"
             bgColor="contrast.200"
             display={props.featureList ? "block" : "none"}
           >
+            <Box
+              left="0"
+              right="0"
+              top="100%"
+              bottom="0"
+              zIndex="-1"
+              width="100%"
+              height="100vh"
+              bgColor="gray.50"
+              position="absolute"
+              onClick={() => props.setFeatureList(false)}
+              display={props.featureList ? "block" : "none"}
+            />
             <Box mb="5" borderBottom="1px solid" borderColor="gray.200">
               <Text mt="2.5" mb="1.5" fontWeight="normal" fontSize="2xl">
                 Featured
               </Text>
-              <Flex mb="3">
+              <Flex flexWrap="wrap" mb="3">
                 {featuredList.map((products: string, index: number) => (
                   <Button
                     key={index}
                     h="8"
                     mr="1"
                     px="2.5"
+                    my="0.5"
                     w="auto"
                     _hover={{}}
                     _focus={{}}

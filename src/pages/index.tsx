@@ -1,12 +1,15 @@
-import { Box } from "@chakra-ui/react";
-import React from "react";
-import { Header, ProductDetails } from "../components";
+import React from "react"
+import type { NextPage } from "next"
+import { Box } from "@chakra-ui/react"
+import { ProductsList, Header } from "~/src/components"
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    <Box bgColor="gray.200" h="100%">
+    <Box>
       <Header />
-      <ProductDetails />
+      <ProductsList />
     </Box>
-  );
+  )
 }
+
+export default Home

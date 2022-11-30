@@ -1,0 +1,32 @@
+.pagationWrapper {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto !important;
+  margin-top: 30px !important;
+}
+.previousBtn a,
+.nextBtn a,
+.pagination-page a {
+  margin: 0px 2px;
+  border-radius: 3px;
+  padding: 8px 12px 7px 13px;
+  border: 1px solid #6c6e73;
+  background-color: #e7e9ec;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+}
+
+.pagination-page a:hover {
+  background-color: #e0e3e9;
+  border-color: #0f1111;
+}
+.activePage a {
+  background-color: #fff;
+  border-color: #e77600;
+  color: #e77600;
+}
+.disabledBtn a {
+  cursor: unset;
+  background-color: #ffffff;
+}
